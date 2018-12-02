@@ -1,0 +1,3 @@
+<mat-chip-list (change)="onChange($event)">
+  <mat-chip *ngFor="let tag of tags" #chip="matChip" class="item" (click)="chip.selectViaInteraction()">{{tag}}</mat-chip>
+</mat-chip-list>

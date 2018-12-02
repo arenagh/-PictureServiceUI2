@@ -1,0 +1,5 @@
+<h1 class="header-title"><mat-icon class="header-icon">{{icon}}</mat-icon><span>{{title}}</span></h1>
+<div class="container">
+  <pic-navi [length]="itemCount" [current]="position" (currentChange)="posChange($event)"></pic-navi>
+  <tag-selector [tags]="tags" (onSelect)="tagSelect($event)" class="tag"></tag-selector>
+</div>

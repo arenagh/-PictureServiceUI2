@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="image">
+    <img *ngIf="showed" [src]="thumbUrl" (click)="this.clicked()" />
+  </div>
+  <div>
+    <button mat-button [matMenuTriggerFor]="menu" class="button"><mat-icon>more_horiz</mat-icon></button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>aaa</button>
+      <button mat-menu-item>bbb</button>
+    </mat-menu>
+  </div>
+</div>
+

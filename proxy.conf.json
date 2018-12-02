@@ -1,0 +1,13 @@
+{
+    "/picture": {
+        "target": {
+	    "host": "localhost",
+	    "protocol": "http:",
+	    "port": 8080
+	},
+	"secure": false,
+	"pathRewrite": {
+	    "^/picture": "/PictureService"
+	}
+    }
+}

@@ -1,0 +1,4 @@
+<div class="container" [ngStyle]="{'height': height + 'px'}">
+  <thumbnail *ngFor="let pic of pictures; index as idx" [index]="idx" (onImageClick)="selected(idx)" [thumbUrl]="pic.thumbnailUrl"></thumbnail>
+</div>
+

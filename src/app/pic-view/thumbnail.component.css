@@ -1,0 +1,19 @@
+.container {
+    display: inline-block;
+    width: 180px;
+    height: 220px;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 180px;
+}
+
+.button {
+    float: right;
+    width: 32px;
+    padding: 0;
+}
