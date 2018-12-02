@@ -22,6 +22,12 @@ export class PictureInfoService {
         );
     }
 
+    getDownloadedInfoList(): Observable<PictureInfo[]> {
+        return this.http.get<{ [key: string]: PictureInfo }>('picture/resources/info/downloaded/list').pipe(
+            map(infos => Object.keys(infos).map(key => this.getElement(key, infos)))
+        );
+    }
+
     getElement(key: string, list: { [key: string]: PictureInfo }): PictureInfo {
         const element = list[key];
         element.id = key;

@@ -16,6 +16,7 @@ import { IconViewComponent } from './icon-view.component';
 import { ViewService } from './view.service';
 import { TmpViewComponent } from './tmp-view.component';
 import { DownloaderComponent } from './downloader.component';
+import { DownloadedViewComponent } from './downloaded-view.component';
 
 @NgModule({
     imports: [
@@ -40,6 +41,7 @@ import { DownloaderComponent } from './downloader.component';
         IconViewComponent,
         TmpViewComponent,
         DownloaderComponent,
+        DownloadedViewComponent,
     ],
     exports: [
         PicViewComponent,

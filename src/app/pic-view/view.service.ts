@@ -51,10 +51,22 @@ export class ViewService {
         const tmpStr = this.isTmp ? "tmp/" : "";
         return this.picInfoService.getPictureInfoList(tag, this.isTmp).pipe(
             map(result => 
-                result.sort((a: any, b: any) => {
-                    return new Date(b.downloaded).getTime() - new Date(a.downloaded).getTime();
-                }).map(info => new ImageInfo("picture/resources/thumbnail/" + tmpStr + info.id, "picture/resources/picture/" + tmpStr + info.id))
+                result.sort((a: any, b: any) => this.downloadedSorter(a, b))
+                .map(info => new ImageInfo("picture/resources/thumbnail/" + tmpStr + info.id, "picture/resources/picture/" + tmpStr + info.id))
             )
         );
+    }
+
+    getDownloaded(): Observable<ImageInfo[]> {
+        return this.picInfoService.getDownloadedInfoList().pipe(
+            map(result => 
+                result.sort((a: any, b: any) => this.downloadedSorter(a, b))
+                .map(info => new ImageInfo("picture/resources/thumbnail/tmp/" + info.id, "picture/resources/picture/tmp/" + info.id))
+            )
+        );
+    }
+
+    private downloadedSorter(a:any, b: any): number {
+        return new Date(b.downloaded).getTime() - new Date(a.downloaded).getTime();
     }
 }
