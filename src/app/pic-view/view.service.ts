@@ -52,7 +52,7 @@ export class ViewService {
         return this.picInfoService.getPictureInfoList(tag, this.isTmp).pipe(
             map(result => 
                 result.sort((a: any, b: any) => this.downloadedSorter(a, b))
-                .map(info => new ImageInfo("picture/resources/thumbnail/" + tmpStr + info.id, "picture/resources/picture/" + tmpStr + info.id))
+                .map(info => new ImageInfo("/picture/resources/thumbnail/" + tmpStr + info.id, "/picture/resources/picture/" + tmpStr + info.id))
             )
         );
     }
@@ -61,7 +61,7 @@ export class ViewService {
         return this.picInfoService.getDownloadedInfoList().pipe(
             map(result => 
                 result.sort((a: any, b: any) => this.downloadedSorter(a, b))
-                .map(info => new ImageInfo("picture/resources/thumbnail/tmp/" + info.id, "picture/resources/picture/tmp/" + info.id))
+                .map(info => new ImageInfo("/picture/resources/thumbnail/tmp/" + info.id, "/picture/resources/picture/tmp/" + info.id))
             )
         );
     }

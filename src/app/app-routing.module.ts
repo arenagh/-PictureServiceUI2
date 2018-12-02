@@ -9,7 +9,7 @@ const appRoutes: Routes = [
     { path: 'folder', component: FolderViewComponent, },
     { path: 'tmp', component: TmpViewComponent, },
     { path: 'download', component: DownloadedViewComponent, },
-    { path: '', redirectTo: '/tmp', pathMatch: 'full', },
+    { path: '', redirectTo: 'tmp', pathMatch: 'full', },
 ];
 
 @NgModule({

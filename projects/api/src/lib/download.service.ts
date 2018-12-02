@@ -15,7 +15,7 @@ export class DownloadService {
     ) { }
 
     download(tag: string, urls: string[]): Observable<string> {
-        return this.http.post('picture/resources/folder/download_tmp/' + tag, urls).pipe(
+        return this.http.post('/picture/resources/folder/download_tmp/' + tag, urls).pipe(
             map(response => "comp")
         );
     }

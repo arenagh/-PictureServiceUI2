@@ -17,13 +17,13 @@ export class PictureInfoService {
     ) { }
 
     getPictureInfoList(tag: string, tmp: boolean): Observable<PictureInfo[]> {
-        return this.http.get<{ [key: string]: PictureInfo }>('picture/resources/' + (tmp ? "info/tmp/list/" : "info/list/") + tag).pipe(
+        return this.http.get<{ [key: string]: PictureInfo }>('/picture/resources/' + (tmp ? "info/tmp/list/" : "info/list/") + tag).pipe(
             map(infos => Object.keys(infos).map(key => this.getElement(key, infos)))
         );
     }
 
     getDownloadedInfoList(): Observable<PictureInfo[]> {
-        return this.http.get<{ [key: string]: PictureInfo }>('picture/resources/info/downloaded/list').pipe(
+        return this.http.get<{ [key: string]: PictureInfo }>('/picture/resources/info/downloaded/list').pipe(
             map(infos => Object.keys(infos).map(key => this.getElement(key, infos)))
         );
     }

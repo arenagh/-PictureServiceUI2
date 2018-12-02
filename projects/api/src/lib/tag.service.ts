@@ -14,6 +14,6 @@ export class TagService {
     ) { }
 
     getTagList(tmp: boolean): Observable<string[]> {
-        return this.http.get<string[]>('picture/resources/' + (tmp ? "tag/tmp/list" : "tag/list"));
+        return this.http.get<string[]>('/picture/resources/' + (tmp ? "tag/tmp/list" : "tag/list"));
     }
 }
