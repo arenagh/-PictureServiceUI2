@@ -48,10 +48,6 @@ export class IconViewComponent implements OnInit, AfterViewInit, OnDestroy {
         });
     }
 
-    showPic(url: string) {
-        this.showPictureService.showPicture(url);
-    }
-
     selected(pos: number) {
         this.position = pos;
         this.positionChange.emit(pos);

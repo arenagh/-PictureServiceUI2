@@ -13,12 +13,19 @@ import { ImageInfo } from './image-info';
 export class ViewService {
 
     tagListSubject: Subject<string[]> = new BehaviorSubject<string[]>(null);
-    
+   
+    isTmp: boolean;
+ 
     constructor(
-        tagService: TagService, 
+        private tagService: TagService, 
         private picInfoService: PictureInfoService
     ) {
-        tagService.getTagList(false).pipe(
+    }
+
+    requestTagList(tmp: boolean) {
+        this.tagListSubject.next(null);
+        this.isTmp = tmp;
+        this.tagService.getTagList(tmp).pipe(
             take(1)
         ).subscribe(tagList => {
             this.tagListSubject.next(tagList);
@@ -41,11 +48,12 @@ export class ViewService {
     }
 
     tagSelected(tag: string): Observable<ImageInfo[]> {
-        return this.picInfoService.getPictureInfoList(tag, false).pipe(
+        const tmpStr = this.isTmp ? "tmp/" : "";
+        return this.picInfoService.getPictureInfoList(tag, this.isTmp).pipe(
             map(result => 
                 result.sort((a: any, b: any) => {
-                    return b.downloaded - a.downloaded;
-                }).map(info => new ImageInfo("picture/resources/thumbnail/" + info.id, "picture/resources/picture/" + info.id))
+                    return new Date(b.downloaded).getTime() - new Date(a.downloaded).getTime();
+                }).map(info => new ImageInfo("picture/resources/thumbnail/" + tmpStr + info.id, "picture/resources/picture/" + tmpStr + info.id))
             )
         );
     }

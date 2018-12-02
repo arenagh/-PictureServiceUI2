@@ -8,11 +8,11 @@ import { ImageInfo } from './image-info';
 import { IconViewOwner } from './icon-view-owner';
 
 @Component({
-  selector: 'folder-view',
-  templateUrl: './folder-view.component.html',
+  selector: 'tmp-view',
+  templateUrl: './tmp-view.component.html',
   styleUrls: ['./folder-view.component.css']
 })
-export class FolderViewComponent implements OnInit, IconViewOwner {
+export class TmpViewComponent implements OnInit {
 
     selected: string;
     tags: string[];
@@ -29,7 +29,7 @@ export class FolderViewComponent implements OnInit, IconViewOwner {
         private viewService: ViewService,
         private showPictureService: ShowPictureService
     ) {
-        this.viewService.requestTagList(false);
+        this.viewService.requestTagList(true);
         this.viewService.tagList().pipe(
             filter(tagList => tagList != null),
             take(1)

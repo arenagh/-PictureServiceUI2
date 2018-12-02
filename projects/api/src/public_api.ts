@@ -4,4 +4,5 @@
 
 export * from './lib/tag.service';
 export * from './lib/picture-info.service';
+export * from './lib/download.service';
 export * from './lib/api.module';
