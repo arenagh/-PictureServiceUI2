@@ -40,7 +40,7 @@ export class ViewService {
     }
 
     fitIconView(target: IconViewOwner) {
-        target.iconViewHeight = window.innerHeight - target.controller.nativeElement.getBoundingClientRect().bottom;
+        target.iconViewHeight = window.innerHeight - target.iconView.nativeElement.getBoundingClientRect().top;
     }
 
     tagList(): Observable<string[]> {

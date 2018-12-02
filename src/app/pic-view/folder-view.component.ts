@@ -17,7 +17,7 @@ export class FolderViewComponent implements OnInit, IconViewOwner {
     selected: string;
     tags: string[];
 
-    @ViewChild('controller', { read: ElementRef }) controller: ElementRef;
+    @ViewChild('iconView', { read: ElementRef }) iconView: ElementRef;
 
     pictures: ImageInfo[] = [];
 

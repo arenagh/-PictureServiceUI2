@@ -1,2 +1,2 @@
-<pic-view #controller [icon]="'folder'" [title]="selected | currentTag" [tags]="tags" (onTagSelected)="tagSelected($event)" [itemCount]="pictures.length" [position]="position" (positionChange)="showPic($event)"></pic-view>
-<icon-view [pictures]="pictures" [position]="position" (positionChange)="showPic($event)" [height]="iconViewHeight"></icon-view>
+<pic-view [icon]="'folder'" [title]="selected | currentTag" [tags]="tags" (onTagSelected)="tagSelected($event)" [itemCount]="pictures.length" [position]="position" (positionChange)="showPic($event)"></pic-view>
+<icon-view #iconView [pictures]="pictures" [position]="position" (positionChange)="showPic($event)" [height]="iconViewHeight"></icon-view>

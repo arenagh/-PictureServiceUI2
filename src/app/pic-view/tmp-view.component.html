@@ -1,8 +1,8 @@
-<pic-view #controller [icon]="'add'" [title]="selected | currentTag" [tags]="tags" (onTagSelected)="tagSelected($event)" [itemCount]="pictures.length" [position]="position" (positionChange)="showPic($event)"></pic-view>
-<mat-expansion-panel>
+<pic-view [icon]="'add'" [title]="selected | currentTag" [tags]="tags" (onTagSelected)="tagSelected($event)" [itemCount]="pictures.length" [position]="position" (positionChange)="showPic($event)"></pic-view>
+<mat-expansion-panel (afterExpand)="expansionChanged()" (afterCollapse)="expansionChanged()">
   <mat-expansion-panel-header>
     <mat-panel-title>Download</mat-panel-title>
   </mat-expansion-panel-header>
   <downloader [tag]="selected" (downloaded)="tagSelected(selected)"></downloader>
 </mat-expansion-panel>
-<icon-view [pictures]="pictures" [position]="position" (positionChange)="showPic($event)" [height]="iconViewHeight"></icon-view>
+<icon-view #iconView [pictures]="pictures" [position]="position" (positionChange)="showPic($event)" [height]="iconViewHeight"></icon-view>

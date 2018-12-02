@@ -44,7 +44,7 @@ export class IconViewComponent implements OnInit, AfterViewInit, OnDestroy {
 
     showThumbs(entries: IntersectionObserverEntry[]) {
         entries.filter(entry => entry.isIntersecting).forEach(entry => {
-            this.thumbnails.toArray()[entry.target.attributes['ng-reflect-index'].value].showed = true;
+            this.thumbnails.toArray()[Number(entry.target.attributes['id'].value.substr(6))].showed = true;
         });
     }
 

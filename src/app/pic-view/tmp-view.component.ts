@@ -17,7 +17,7 @@ export class TmpViewComponent implements OnInit {
     selected: string;
     tags: string[];
 
-    @ViewChild('controller', { read: ElementRef }) controller: ElementRef;
+    @ViewChild('iconView', { read: ElementRef }) iconView: ElementRef;
 
     pictures: ImageInfo[] = [];
 
@@ -43,12 +43,17 @@ export class TmpViewComponent implements OnInit {
     }
 
     tagSelected(tag: string) {
+        this.viewService.fitIconView(this);
         this.selected = tag;
         this.viewService.tagSelected(tag).pipe(
             take(1)
         ).subscribe(result => {
             this.pictures = result;
         });
+    }
+
+    expansionChanged() {
+        this.viewService.fitIconView(this);
     }
 
     showPic(pos: number) {

@@ -14,7 +14,7 @@ import { IconViewOwner } from './icon-view-owner';
 })
 export class DownloadedViewComponent implements OnInit {
 
-    @ViewChild('controller', { read: ElementRef }) controller: ElementRef;
+    @ViewChild('iconView', { read: ElementRef }) iconView: ElementRef;
 
     pictures: ImageInfo[] = [];
 
